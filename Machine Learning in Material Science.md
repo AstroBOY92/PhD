@@ -1,32 +1,25 @@
-GitHub Wiki: AI and Simulation in Material Science
-
+**GitHub Wiki: AI and Simulation in Material Science
+**
 This documentation outlines several Python-based modules and notebooks for simulation and machine learning applications in material science, including UHTC/CMC thermal modeling and AI techniques like segmentation, regression, and clustering.
 
-📁 Index
+**📁 Index**
 
-[[Deep Learning for Image Segmentation]]
+    [[Deep Learning for Image Segmentation]]
+    
+    [[Finite Element Analysis of UHTCs]]
+    
+    [[ML in Material Science: Regression, Clustering, RL]]
+    
+    [[Running the Code]]
+    
+    [[Installation Requirements]]
+    
+    [[Future Enhancements]]
+    
+    [[Deep Learning for Image Segmentation]]
+    
+    Script: Deep Learning Image Segmentation on a CMC Sample.py
 
-[[Finite Element Analysis of UHTCs]]
-
-[[ML in Material Science: Regression, Clustering, RL]]
-
-[[Running the Code]]
-
-[[Installation Requirements]]
-
-[[Future Enhancements]]
-
-[[Deep Learning for Image Segmentation]]
-
-Script: Deep Learning Image Segmentation on a CMC Sample.py
-
-Highlights
-
-Uses TensorFlow and Keras to build a dense neural network
-
-Trains on the MNIST dataset (as a placeholder for CMC microstructures)
-
-Plots training and validation accuracy across epochs
 
 Output
 
