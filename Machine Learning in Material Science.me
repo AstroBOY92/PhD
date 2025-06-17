@@ -1,0 +1,107 @@
+GitHub Wiki: AI and Simulation in Material Science
+
+This documentation outlines several Python-based modules and notebooks for simulation and machine learning applications in material science, including UHTC/CMC thermal modeling and AI techniques like segmentation, regression, and clustering.
+
+📁 Index
+
+[[Deep Learning for Image Segmentation]]
+
+[[Finite Element Analysis of UHTCs]]
+
+[[ML in Material Science: Regression, Clustering, RL]]
+
+[[Running the Code]]
+
+[[Installation Requirements]]
+
+[[Future Enhancements]]
+
+[[Deep Learning for Image Segmentation]]
+
+Script: Deep Learning Image Segmentation on a CMC Sample.py
+
+Highlights
+
+Uses TensorFlow and Keras to build a dense neural network
+
+Trains on the MNIST dataset (as a placeholder for CMC microstructures)
+
+Plots training and validation accuracy across epochs
+
+Output
+
+Accuracy plot of training/testing performance
+
+Final test accuracy printed on console
+
+[[Finite Element Analysis of UHTCs]]
+
+Script: FEA_UTHC_Code (2).py
+
+Module 1 (FEniCS)
+
+Simulates steady-state heat distribution using FEniCS
+
+Solves Laplace's equation with Dirichlet boundary conditions
+
+Outputs a VTK file and visual plot
+
+Module 2 (Numpy & Scipy)
+
+Implements finite difference method manually
+
+Applies different boundary temperatures on edges
+
+Solves system using linear algebra and plots 2D temperature field
+
+Output
+
+VTK visualization: heat_solution.pvd
+
+Heatmap plot showing temperature distribution
+
+[[ML in Material Science: Regression, Clustering, RL]]
+
+Scripts:
+
+Machine Learning in Material Science example.py
+
+MLExamplesformaterialscience.py
+
+Contains
+
+Supervised Learning: Linear regression fit using synthetic blob data
+
+Unsupervised Learning: KMeans clustering on synthetic 2D dataset
+
+Reinforcement Learning: Illustrative example of states/actions/rewards
+
+Output
+
+Side-by-side visualizations for all 3 ML types
+
+[[Running the Code]]
+
+You can run each script individually in a Python environment. Some notes:
+
+FEniCS script may require a Linux environment or Docker image
+
+TensorFlow script runs on CPU or GPU depending on setup
+
+All scripts produce visual outputs using matplotlib
+
+[[Installation Requirements]]
+
+pip install tensorflow matplotlib numpy scikit-learn fenics
+
+Note: FEniCS installation may differ by OS. Use Docker for a portable setup.
+
+[[Future Enhancements]]
+
+Replace MNIST with real CMC/UHTC segmentation datasets
+
+Add UQ (uncertainty quantification) to FEA outputs
+
+Extend ML examples to include SVM, PCA, and deep RL
+
+Package into a modular research framework with CLI/GUI
