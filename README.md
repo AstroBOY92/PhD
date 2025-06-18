@@ -1,4 +1,4 @@
-# Using of Machine Learning to modell material degratation for CMCs under hypersonic flow.
+# Using of Machine Learning to modell material degratation for Ultra-High Temperature Ceramics under hypersonic flow.
 
 [**Dataset**](#dataset)
 | [**Models**](#models)
@@ -8,19 +8,33 @@
 | [**Upcoming**](#upcoming)
 | [**Citing**](#citing)
 
-### What is Materials Discovery: GNoME?
+### Predicting Material Propreties
 
-From microchips to batteries and photovoltaics, discovery of inorganic crystals
-is a fundamental problem in materials science. Graph Networks for Materials
-Science (GNoME) is a project centered around scaling machine learning methods
-to tackle this core task. With results recently published, this repository
-serves to share the discovery of 381,000 novel stable materials with the wider
-materials science community and hopefully enable exciting new research via the
-updated convex hull.
+The code that can be found on this repository 
+supports research on the use of machine learning (ML) 
+and predictive analytics to model and simulate 
+the degradation of Ultra-High Temperature Ceramics (UHTCs) 
+under hypersonic flow conditions. 
+The study aims to improve the accuracy 
+and efficiency of degradation modelling to aid design a
+nd enhance the performance and reliability of these components.
 
-This is a research project, not an official Google product. Expect bugs as the
-repository expands and sharp edges. Please help by exploring the structures
-and let us know what you think!
+ML can be used to predict material 
+properties such as electronic, magnetic, 
+and mechanical properties 
+based on the chemical composition, 
+crystal structure, and processing conditions. 
+This can be achieved by training a model on a labeled dataset 
+that includes experimental or simulated data. 
+For example, 
+ML models have been used to predict the bandgap of materials, 
+which is a critical property for applications in electronics and optoelectronics. 
+Models based upon these methodologies 
+have also been used to predict the mechanical properties of materials,
+such as the Young's modulus and Poisson's ratio, 
+which are important for designing materials with specific mechanical properties.
+
+
 
 ### Contents
 * [**Dataset**](#dataset)
@@ -35,7 +49,7 @@ and let us know what you think!
 
 The dataset described in the original paper is provided across multiple file
 formats. For more details, including how to download the dataset, please see
-our dataset descriptor file in DATASET.md.
+our dataset descriptor file in DATASET.md. in the dataset folder
 
 **Summarized** A summary of the dataset is provided in CSV format. This file
 contains compositions and raw energies from Density Functional Theory (DFT)
@@ -59,18 +73,18 @@ metrics is included for these calculations.
 
 ### Models
 
-We provide model definitions for the two sets of models used in the paper.
+The code is present in each of the 3 folders
 
-**GNoME** were the predominant model behind new materials
+**Model** were the predominant model behind new materials
 discovery. This simple message passing architecture was optimized by training
-on a snapshot of Materials Project from 2018, leading to state-of-the-art results
-of 21meV/atom.
+on a snapshot of Materials Project from 2018 and has been developed using various
+pythong libraries. The model is used for dataset generation
+overall training data and test data.
 
-**Nequip** corresponds to the architecture created by Batzner et al. (2022).
-This architecture was used to train the interatomic potentials described in the
-paper to learn the dynamics from the large dataset. We provide an implementation
-in JAX as well as basic configuration parameters for the corresponding
-architecture.
+**HypersonicCode** corresponds to code that can generate the thermofluid analysis
+using Direct MonteCarlo Simulation
+
+**Surrogate Models** Code that is used predominaly for chapter 4
 
 ### Colabs
 
