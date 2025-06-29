@@ -1,26 +1,37 @@
 import numpy as np
 import pandas as pd
 
-# Constants (edit as appropriate for your material)
-rho_0 = 2.33       # Initial density (g/cm^3) — example for Si
-rho_m = 2.65       # Oxide density (g/cm^3) — example for SiO2
-A = 1.0            # Area (cm^2)
-k = 8.617e-5       # Boltzmann constant (eV/K)
-D = 1.0            # Set D=1 (unitless) unless specified
-x = 0              # Assume x=0 so cos(Dx)=1
+# Constants for Dry Oxidation (from your data)
+C1 = 7.72e2    # μm^2/hr
+C2 = 6.23e6    # μm^2/hr
+k = 8.617e-5   # eV/K
+T = 1100 + 273 # Temperature in Kelvin (example: 1100°C furnace)
+# Activation energy for dry oxidation (parabolic)
+E = 2.00       # eV
+a2 = 1         # Assume a2=1 unless specified
 
 # Time array (hours)
 time_hr = np.linspace(0, 20, 100)
-time_s = time_hr * 3600  # convert to seconds if needed
 
-# Calculate W(t)
-W = (rho_0 * rho_m * np.exp((rho_0/rho_m)*time_hr) * np.cos(D*x) * A * time_hr) / k
+# Calculate β and α
+beta = C1 * np.exp(-E/(k*T))
+alpha = beta / (C2 * np.exp(-E/(k*T)))
+
+# Calculate oxide thickness for each t (choose + root for physical solution)
+thickness = []
+for t in time_hr:
+    discriminant = alpha**2 - 4*beta*t
+    if discriminant < 0:
+        x = np.nan  # Non-physical, skip or set NaN
+    else:
+        x = (alpha + np.sqrt(discriminant)) / (2*a2)
+    thickness.append(x)
 
 # Create DataFrame
-df_wt = pd.DataFrame({
+df_thickness = pd.DataFrame({
     'Time_hr': time_hr,
-    'Weight_Change': W
+    'Oxide_Thickness_um': thickness
 })
 
-print(df_wt.head())
-df_wt.to_csv('weight_change_vs_time.csv', index=False)
+print(df_thickness.head())
+df_thickness.to_csv('oxide_thickness_vs_time.csv', index=False)
